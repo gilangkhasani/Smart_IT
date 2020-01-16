@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>System Inventory | Dashboard</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <!-- bootstrap 3.0.2 -->
+        <link href="<?php echo base_url()?>template_lala/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- font Awesome -->
+        <link href="<?php echo base_url()?>template_lala/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+        <link href="<?php echo base_url()?>template_lala/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <!-- Morris chart -->
+        <link href="<?php echo base_url()?>template_lala/css/morris/morris.css" rel="stylesheet" type="text/css" />
+        <!-- jvectormap -->
+        <link href="<?php echo base_url()?>template_lala/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+        <!-- fullCalendar -->
+        <link href="<?php echo base_url()?>template_lala/css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+        <!-- Daterange picker -->
+        <link href="<?php echo base_url()?>template_lala/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+        <!-- bootstrap wysihtml5 - text editor -->
+        <link href="<?php echo base_url()?>template_lala/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+        <!-- Theme style -->
+        <link href="<?php echo base_url()?>template_lala/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+
+    </head>
+    <body class="skin-blue">
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a href="index.html" class="logo">
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                System Inventory
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+   
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="<?php echo base_url()?>Sb_login/doLogout">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>Log Out<span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li class="active">
+                            <a href="index.html">
+                                <i class="fa fa-dashboard"></i> <span>Main Menu</span>
+                            </a>
+                        </li>
+						<li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>Export-Import</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="treeview"><a href="pages/charts/morris.html"><i class="icon-user scolor"></i> Export<i class="fa fa-angle-left pull-right"></i></a>
+									<ul class="treeview-menu">
+										<li><a href="<?php echo base_url()?>index.php/Sb_export/listing/BC_2.3"><i class="fa fa-angle-double-right"></i> EXP 2.5</a></li>
+										<li><a href="<?php echo base_url()?>index.php/Sb_export/listing/BC_2.6.1"><i class="fa fa-angle-double-right"></i> EXP 2.6.1</a></li>
+										<li><a href="<?php echo base_url()?>index.php/Sb_export/listing/BC_2.7"><i class="fa fa-angle-double-right"></i> EXP 2.7</a></li>
+										<li><a href="<?php echo base_url()?>index.php/Sb_export/listing/BC_3.0"><i class="fa fa-angle-double-right"></i> EXP 3.0</a></li>
+										<li><a href="<?php echo base_url()?>index.php/Sb_export/listing/BC_4.1"><i class="fa fa-angle-double-right"></i> EXP 4.1</a></li>
+									</ul>
+								</li>
+                                <li class="treeview"><a href="pages/charts/flot.html"><i class="icon-user scolor"></i> Import<i class="fa fa-angle-left pull-right"></i></a>
+									<ul class="treeview-menu">
+										<li><a href="<?php echo base_url()?>index.php/Sb_import/listing/BC_2.3"><i class="fa fa-angle-double-right"></i> IMP 2.3</a></li>
+										<li><a href="<?php echo base_url()?>index.php/Sb_import/listing/BC_2.6.2"><i class="fa fa-angle-double-right"></i> IMP 2.6.2</a></li>
+										<li><a href="<?php echo base_url()?>index.php/Sb_import/listing/BC_2.7"><i class="fa fa-angle-double-right"></i> IMP 2.7</a></li>
+										<li><a href="<?php echo base_url()?>index.php/Sb_import/listing/BC_4.0"><i class="fa fa-angle-double-right"></i> IMP 4.0</a></li>
+									</ul>
+								</li>
+                            </ul>
+                        </li>
+						<li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>Inventory</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Stock Transfer</a></li>
+                                <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Material Return</a></li>
+                                <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Production Result</a></li>
+                                <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Stock Opname</a></li>
+                            </ul>
+                        </li>
+						<li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>Production</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Consumption</a></li>
+                                <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Production Plan</a></li>
+                                <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Work In Process</a></li>
+                            </ul>
+                        </li>
+						<li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>Report</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo base_url()?>index.php/Sb_pemasukan_barang/detail"><i class="fa fa-angle-double-right"></i> Pemasukan Barang Per Dokumen</a></li>
+                                <li><a href="<?php echo base_url()?>index.php/Sb_pengeluaran_barang/detail"><i class="fa fa-angle-double-right"></i> Pengeluaran Barang Per Dokumen</a></li>
+                                <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Work In Process</a></li>
+                                <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Mutasi Bahan Baku dan Penolong</a></li>
+                                <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Mutasi Barang Jadi</a></li>
+                                <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Mutasi Barang Sisa dan Scrap</a></li>
+                                <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Mutasi Mesin dan Peralatan</a></li>
+                            </ul>
+                        </li>
+						<li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>Setting</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="treeview"><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Barang<i class="fa fa-angle-left pull-right"></i></a>
+									<ul class="treeview-menu">
+										<li><a href="<?php echo base_url()?>index.php/Sb_barang/listing/Bahan_Baku"><i class="fa fa-angle-double-right"></i> Bahan Baku</a></li>
+										<li><a href="<?php echo base_url()?>index.php/Sb_barang/listing/Bahan_Penolong"><i class="fa fa-angle-double-right"></i> Bahan Penolong</a></li>
+										<li><a href="<?php echo base_url()?>index.php/Sb_barang/listing/Barang_Jadi"><i class="fa fa-angle-double-right"></i> Barang Jadi</a></li>
+										<li><a href="<?php echo base_url()?>index.php/Sb_barang/listing/Scrap"><i class="fa fa-angle-double-right"></i> Scrap</a></li>
+										<li><a href="<?php echo base_url()?>index.php/Sb_barang/listing/Mesin_Sparepart"><i class="fa fa-angle-double-right"></i> Mesin/Sparepart</a></li>
+										<li><a href="<?php echo base_url()?>index.php/Sb_barang/listing/Peralatan_Pabrik"><i class="fa fa-angle-double-right"></i> Peralatan Pabrik</a></li>
+									</ul>
+								</li>
+								<li><a href="<?php echo base_url()?>index.php/Sb_periode"><i class="fa fa-angle-double-right"></i> Periode</a></li>
+								<li><a href="<?php echo base_url()?>index.php/Sb_users"><i class="fa fa-angle-double-right"></i> User Management</a></li>
+                                <li><a href="<?php echo base_url()?>index.php/Sb_satuan"><i class="fa fa-angle-double-right"></i> Satuan</a></li>
+                                <li><a href="<?php echo base_url()?>index.php/Sb_supplier"><i class="fa fa-angle-double-right"></i> Supplier</a></li>
+                                <li><a href="<?php echo base_url()?>index.php/Sb_negara"><i class="fa fa-angle-double-right"></i> Negara</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        PT. SMART REKAN CIPTA KREASI
+                        <small>Selamat Datang, nama user yang masuk</small>
+                    </h1>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+					<div class="dataTables_wrapper form-inline" role="grid">
+						
+							<?php echo $this->load->view($content)?>
+					</div>
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+
+        <!-- add new calendar event modal -->
+
+
+        <!-- jQuery UI 1.10.3 -->
+        <script src="<?php echo base_url()?>template_lala/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+        <!-- Bootstrap -->
+        <script src="<?php echo base_url()?>template_lala/js/bootstrap.min.js" type="text/javascript"></script>
+
+        <!-- AdminLTE App -->
+        <script src="<?php echo base_url()?>template_lala/js/AdminLTE/app.js" type="text/javascript"></script>
+        
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="<?php echo base_url()?>template_lala/js/AdminLTE/dashboard.js" type="text/javascript"></script>     
+        
+        <!-- AdminLTE for demo purposes -->
+        <script src="<?php echo base_url()?>template_lala/js/AdminLTE/demo.js" type="text/javascript"></script>
+		
+		
+
+    </body>
+</html>
